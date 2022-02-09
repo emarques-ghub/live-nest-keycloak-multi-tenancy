@@ -15,3 +15,6 @@ docker-compose up
 
 Acesse no browser http://localhost:3000/login. Use o arquivo `api.http` para testar o JWT.
 
+sequelize no container da app nest
+npm install @nestjs/sequelize sequelize sequelize-typescript --save
+npm install @types/sequelize --save-dev

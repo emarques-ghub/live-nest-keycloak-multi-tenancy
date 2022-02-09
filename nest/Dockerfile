@@ -4,6 +4,12 @@ RUN apk add --no-cache bash
 
 RUN npm install -g @nestjs/cli@8.0.0
 
+#este commmando abaixo retarda o inicio da aplicacao para que o db esteja up antes, caso contrario a app vai consukltar  o db e dar erro
+ENV DOCKERIZE_VERSION v0.6.1
+RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
 USER node
 
 WORKDIR /home/node/app
